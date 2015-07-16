@@ -26,8 +26,7 @@ func payload() (*Payload, error) {
 
 	// Parse the response
 	var payload Payload
-	err := json.Unmarshal(content, &payload)
-	if err != nil {
+	if err := json.Unmarshal(content, &payload); err != nil {
 		log.Fatal(err)
 		return nil, err
 	}
